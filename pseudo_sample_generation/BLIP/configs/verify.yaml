@@ -1,0 +1,16 @@
+image_root: '/network_space/storage43/ln_data/images/train2014/'
+test_file: '/home/zhangjiahua/Code/Pseudo-Q/unc/real_query_pair.pth'
+dataset: 'grounding'
+
+
+# set pretrained as a file path or an url
+pretrained: '/home/zhangjiahua/Code/X-VLM/BLIP/model_base_retrieval_coco.pth'
+
+# size of vit model; base or large
+
+vit: 'base'
+batch_size_test: 64
+
+
+image_size: 384
+queue_size: 57600
