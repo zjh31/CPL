@@ -8,7 +8,7 @@ mv detects.tar.gz ./pseudo_sample_generation/detction_result/
 tar -zxvf detects.tar.gz
 ```
 ## Generation of PseudoQuery-Region pairs
-Take the RefCOCO dataset as an example. Please download the images of RefCOCO to ```./image_data/other/images/``` first. We need off-the-shelf NLP processing toolbox [Stanford CoreNLP](XXXX) and [word2vec model](XXXX) to fliter nouns and attributes. We also need caption model of [BLIP](./pseudo_sample_generation/BLIP/README.md) to generation caption by object centric pipeline and relation aware pipeline.
+Take the RefCOCO dataset as an example. Please download the images of RefCOCO to ```./image_data/other/images/``` first. We need off-the-shelf NLP processing toolbox [Stanford CoreNLP](XXXX) and [word2vec model](XXXX) to fliter nouns and attributes. We also need caption model of [BLIP](./BLIP/README.md) to generation caption by object centric pipeline and relation aware pipeline.
 ```
 CUDA_VISIBLE_DEVICES=0 python pseudo_sample_generation/generate.py --image_root ./image_data/other/images/ --output_dir ./output/unc --nlp_model_file [stanford-corenlp model path] --google_model_file [word2vec model path] --object_file ./pseudo_sample_generation/detection_result/coco_data.pth --dataset unc --image_size 384 --blip_caption_file [blip_caption_model_path]
 ```
@@ -22,7 +22,7 @@ CUDA_VISIBLE_DEVICES=0 python pseudo_sample_generation/propagation.py --output_d
 ```
 
 ## Verification of pseudo samples
-After generating diverse pseudo samples(PseudoQuery-Region pairs and RealQuery-Region pairs), we utilize Image-Text Matching module of [BLIP](./pseudo_sample_generation/BLIP/README.md) to verify the quality of pseudo samples. 
+After generating diverse pseudo samples(PseudoQuery-Region pairs and RealQuery-Region pairs), we utilize Image-Text Matching module of [BLIP](./BLIP/README.md) to verify the quality of pseudo samples. 
 
 ```
 #verification of realquery-region pairs
