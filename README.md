@@ -1,7 +1,10 @@
 # CPL
 <p align="center"> <img src='docs/model.png' align="center" height="250px"> </p>
+
 This repository is the official Pytorch implementation for ICCV2023 paper **Confidence-aware Pseudo-label Learning for Weakly Supervised Visual Grounding**.
+
 **Please leave a <font color='orange'>STAR ⭐</font> if you like this project!**
+
 ## Contents
 
 1. [Usage](#usage)
