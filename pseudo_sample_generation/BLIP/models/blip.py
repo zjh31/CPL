@@ -19,7 +19,6 @@ import torch.nn.functional as F
 import os
 from urllib.parse import urlparse
 from timm.models.hub import download_cached_file
-import pdb
 class BLIP_Base(nn.Module):
     def __init__(self,                 
                  med_config = 'configs/med_config.json',  

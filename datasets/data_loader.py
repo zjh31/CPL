@@ -174,7 +174,7 @@ class TransVGDataset(data.Dataset):
 
         assert self.transform is not None
 
-        if split in ['train', 'train_pseudo', 'train_cross_modal']:
+        if split in ['train', 'train_cross_modal', 'train_uni_modal']:
             self.augment = True
         else:
             self.augment = False
@@ -239,7 +239,6 @@ class TransVGDataset(data.Dataset):
         else:
             img_file, bbox, phrase = self.images[idx]
         bbox = np.array(bbox, dtype=int)
-        self.im_dir = '/network_space/storage43/ln_data/images/train2014/'
         img_path = osp.join(self.im_dir, img_file)
         img = Image.open(img_path).convert("RGB")
 

@@ -3,7 +3,6 @@ import os.path
 
 import cv2
 import torch
-import pdb
 import _pickle as cPickle
 from transformers import BertModel
 from sklearn.metrics.pairwise import cosine_similarity

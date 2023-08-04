@@ -1,7 +1,6 @@
 import os
 import re
 import json
-import pdb
 from tqdm import tqdm
 import torch
 import numpy as np
@@ -31,6 +30,7 @@ def cal_overlap(box1, box2):
 
 
 def extra_nn_jj(data_file, nlp, google_model):
+    print("extra nouns and attributes...........")
     data = torch.load(data_file)
     nn_vector = {}
     jj_vector = {}
@@ -356,6 +356,7 @@ def cal_num(data):
     print(total)
 
 def template_pipeline(data_file, nlp, google_model, object_file, nn_vec, jj_vec, object_num=-1):
+    print("generate pseudo queries by heuristic pipeline.........")
     detects = torch.load(object_file)
     data = filt_obj(detects, nn_vec, jj_vec, google_model, data_file, attribute=True, object_num=object_num)
     data = add_horizontal(data)
@@ -367,6 +368,7 @@ def template_pipeline(data_file, nlp, google_model, object_file, nn_vec, jj_vec,
 
 
 def object_centric_pipeline(data_file, nlp, google_model, object_file, nn_vec, jj_vec):
+    print("generate prompt for object centric pipeline............")
     detects = torch.load(object_file)
     data = filt_obj(detects, nn_vec, jj_vec, google_model, data_file, attribute=False, object_num=10)
     final_data = generate_text(data, pos_nes=False)
@@ -375,11 +377,12 @@ def object_centric_pipeline(data_file, nlp, google_model, object_file, nn_vec, j
 
 
 
-def relation_aware_pipeline(data_file, nlp, google_model, object_file, nn_vec, jj_vec):
+def relation_aware_pipeline(data_file, nlp, google_model, object_file, nn_vec, jj_vec):\
+    print("generate prompt for relation aware pipeline............")
     detects = torch.load(object_file)
     data = filt_obj(detects, nn_vec, jj_vec, google_model, data_file, attribute=False, object_num=10)
     data = add_horizontal(data)
-    final_data = generate_text(data, pos_nes=False)
+    final_data = generate_text(data, pos_nes=True)
     return final_data
 
 

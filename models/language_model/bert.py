@@ -16,7 +16,7 @@ class BERT(nn.Module):
         else:
             self.num_channels = 1024
         self.enc_num = enc_num
-        self.bert = BertModel.from_pretrained('/home/zhangjiahua/Code/Pseudo-Q_old/models/uncased_Bert')
+        self.bert = BertModel.from_pretrained(name)
 
         if not train_bert:
             for parameter in self.bert.parameters():

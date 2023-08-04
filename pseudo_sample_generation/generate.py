@@ -9,7 +9,6 @@ from template import template_pipeline, object_centric_pipeline, relation_aware_
 from stanfordcorenlp import StanfordCoreNLP
 from gensim.models import KeyedVectors
 from BLIP.models.blip import blip_decoder
-import pdb
 from tqdm import tqdm
 from PIL import Image
 from torchvision import transforms

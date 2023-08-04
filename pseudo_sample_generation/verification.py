@@ -21,12 +21,10 @@ import torch.nn.functional as F
 from torch.utils.data import DataLoader
 import torch.backends.cudnn as cudnn
 import torch.distributed as dist
-import pdb
 from BLIP.models.blip_itm import blip_itm
 import BLIP.utils as utils
 from BLIP.utils import cosine_lr_schedule
 from BLIP.data import create_dataset, create_sampler, create_loader
-#from BLIP.data.grounding_dataset import grounding
 from BLIP.data.utils import save_result
 import numpy
 

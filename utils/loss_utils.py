@@ -4,7 +4,6 @@ import torch.nn.functional as F
 
 from utils.box_utils import bbox_iou, xywh2xyxy, xyxy2xywh, generalized_box_iou
 from utils.misc import get_world_size
-import pdb
 
 def build_target(args, gt_bbox, pred, device):
     batch_size = gt_bbox.size(0)
@@ -117,7 +116,7 @@ def trans_vg_loss(batch_pred, batch_target, weight):
     ))
 
     losses = {}
-    tau = 5
+    tau = 8
     soft_weight = F.softmax(weight/tau, dim=0)
     losses['loss_bbox'] = (loss_bbox.sum(dim=1) * soft_weight.sum(dim=1)).sum()
     losses['loss_giou'] = (loss_giou * soft_weight.sum(dim=1)).sum()
