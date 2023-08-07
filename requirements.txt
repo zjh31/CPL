@@ -1,0 +1,15 @@
+numpy==1.21.2
+nvidia_ml_py3==7.352.0
+opencv_python==4.5.5.62
+Pillow==9.0.1
+pynvml==11.4.1
+pytorch_pretrained_bert==0.6.2
+scipy==1.8.0
+torch==1.9.0+cu111
+torchvision==0.10.0+cu111
+tqdm==4.62.3
+timm==0.4.12
+transformers==4.15.0
+fairscale==0.4.4
+stanfordcorenlp
+gensim

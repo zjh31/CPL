@@ -114,17 +114,17 @@ tar -zxvf pseudoq_checkpoints.tar.gz
     </tbody>
     <tbody>
     <tr>
-            <td>80.5</td>
-            <td>83.2</td>
-            <td>75.2</td>
-            <td>66.4</td>
-            <td>70.5</td>
-            <td>57.7</td>
-            <td>66.4</td>
-            <td>67.9</td>
-            <td>67.4</td>
-            <td>71.6</td>
-            <td>69.3</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
         </tr>
     </tbody>
 </table>
