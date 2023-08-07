@@ -97,8 +97,6 @@ def main(args, config):
     file_name = '{0}_{1}.pth'.format(args.dataset, args.modal)
     save_path = os.path.join(args.output_dir, file_name)
     torch.save(data, save_path)
-    #torch.save(grounding_result, 'output/result.pth')        
-    #result_file = save_result(grounding_result, args.result_dir, 'verify_result')  
                       
     total_time = time.time() - start_time
     total_time_str = str(datetime.timedelta(seconds=int(total_time)))

@@ -95,7 +95,7 @@ def get_args_parser():
     # Dataset parameters
     parser.add_argument('--data_root', type=str, default='./data/image_data/',
                         help='path to ReferIt splits data folder')
-    parser.add_argument('--split_root', type=str, default='./data/pseudo_samples/',
+    parser.add_argument('--split_root', type=str, default='./data/',
                         help='location of pre-parsed dataset info')
     parser.add_argument('--dataset', default='referit', type=str,
                         help='referit/flickr/unc/unc+/gref')
@@ -122,7 +122,7 @@ def get_args_parser():
     parser.add_argument('--dist_url', default='env://', help='url used to set up distributed training')
 
     # evalutaion options
-    parser.add_argument('--eval_set', default='text', type=str)
+    parser.add_argument('--eval_set', default='test', type=str)
     parser.add_argument('--eval_model', default='', type=str)
 
     # Prompt Engineering
@@ -175,7 +175,7 @@ def main(args):
         sampler_test, args.batch_size, drop_last=False)
 
     data_loader_test = DataLoader(dataset_test, args.batch_size, sampler=sampler_test,
-                                  drop_last=False, collate_fn=utils.collate_fn, num_workers=args.num_workers)
+                                  drop_last=False, collate_fn=utils.collate_fn_train, num_workers=args.num_workers)
 
     checkpoint = torch.load(args.eval_model, map_location='cpu')
     model_without_ddp.load_state_dict(checkpoint['model'])
