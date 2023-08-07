@@ -81,3 +81,47 @@ tar -zxvf pseudoq_checkpoints.tar.gz
     CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python -m torch.distributed.launch --nproc_per_node=8 --master_port 28888 --use_env eval.py --num_workers 4 --batch_size 128 --backbone resnet50 --bert_enc_num 12 --detr_enc_num 6 --dataset unc --max_query_len 20 --data_root ./data/image_data --split_root ./data/pseudo_samples/ --eval_model ./checkpoints/unc_best_checkpoint.pth --eval_set testA --output_dir ./outputs/unc/testA/;
     ```
     Please refer to [scripts/eval.sh](scripts/eval.sh) for evaluation commands on other splits or datasets.
+
+## Results
+
+<table border="2">
+    <thead>
+        <tr>
+            <th colspan=3> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp RefCOCO </th>
+            <th colspan=3> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp RefCOCO+</th>
+            <th colspan=3> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp RefCOCOg</th>
+            <th colspan=1> ReferItGame</th>
+            <th colspan=1> Flickr30K</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>    
+            <td>val</td>
+            <td>testA</td>
+            <td>testB</td>
+            <td>val</td>
+            <td>testA</td>
+            <td>testB</td>
+            <td>g-val</td>
+            <td>u-val</td>
+            <td>u-test</td>
+            <td>test</td>
+            <td>test</td>
+        </tr>
+    </tbody>
+    <tbody>
+    <tr>
+            <td>80.5</td>
+            <td>83.2</td>
+            <td>75.2</td>
+            <td>66.4</td>
+            <td>70.5</td>
+            <td>57.7</td>
+            <td>66.4</td>
+            <td>67.9</td>
+            <td>67.4</td>
+            <td>71.6</td>
+            <td>69.3</td>
+        </tr>
+    </tbody>
+</table>
