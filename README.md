@@ -12,6 +12,9 @@ This repository is the official Pytorch implementation for ICCV2023 paper **Conf
 3. [Contacts](#contacts)
 4. [Acknowledgments](#acknowledgments)
 
+## Usage
+
+### Dependencies
 - Python 3.9.10
 - PyTorch 1.9.0 + cu111 + cp39
 - [Pytorch-Bert 0.6.2](https://pypi.org/project/pytorch-pretrained-bert/)
@@ -78,7 +81,7 @@ tar -zxvf pseudoq_checkpoints.tar.gz
 
 2.  Evaluation on RefCOCO.
     ```
-    CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python -m torch.distributed.launch --nproc_per_node=8 --master_port 28888 --use_env eval.py --num_workers 4 --batch_size 128 --backbone resnet50 --bert_enc_num 12 --detr_enc_num 6 --dataset unc --max_query_len 20 --data_root ./data/image_data --split_root ./data/pseudo_samples/ --eval_model ./checkpoints/unc_best_checkpoint.pth --eval_set testA --output_dir ./outputs/unc/testA/;
+    CUDA_VISIBLE_DEVICES=0,1,2,3 python -m torch.distributed.launch --nproc_per_node=8 --master_port 28888 --use_env eval.py --num_workers 4 --batch_size 128 --backbone resnet50 --bert_enc_num 12 --detr_enc_num 6 --dataset unc --max_query_len 20 --data_root ./data/image_data --split_root ./data/ --eval_model ./checkpoints/unc_best_checkpoint.pth --eval_set testA --output_dir ./outputs/unc/testA/;
     ```
     Please refer to [scripts/eval.sh](scripts/eval.sh) for evaluation commands on other splits or datasets.
 
@@ -125,3 +128,11 @@ tar -zxvf pseudoq_checkpoints.tar.gz
         </tr>
     </tbody>
 </table>
+
+## Contacts
+zhangjiahua at stu dot pku dot edu dot cn
+
+Any discussions or concerns are welcomed!
+
+### Acknowledge
+This codebase is partially based on [Pseudo-Q](https://github.com/LeapLabTHU/Pseudo-Q), [BLIP](https://github.com/salesforce/BLIP) and [VinVL](https://github.com/microsoft/scene_graph_benchmark).
