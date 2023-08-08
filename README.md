@@ -64,10 +64,10 @@ mv detr_checkpoints.tar.gz ./checkpoints/
 tar -zxvf checkpoints.tar.gz
 ```
 
-2.Checkpoints that trained on our pseudo-samples can be downloaded from [XXXXX](XXXXXX). You can evaluate the checkpoints following the instruction right below.
+2.Checkpoints that trained on our pseudo-samples can be downloaded from [Google Drive](https://drive.google.com/file/d/19IhMNEgGIl4qGPq7v0SsD8VZSucfmlXj/view?usp=drive_link). You can evaluate the checkpoints following the instruction right below.
 
 ```
-mv XXXXX.tar.gz ./checkpoints/
+mv cpl_checkpoints.tar.gz ./checkpoints/
 tar -zxvf pseudoq_checkpoints.tar.gz
 ```
 ### Training and Evaluation
@@ -114,17 +114,17 @@ tar -zxvf pseudoq_checkpoints.tar.gz
     </tbody>
     <tbody>
     <tr>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
+            <td>71.91</td>
+            <td>74.75</td>
+            <td>67.70</td>
+            <td>51.81</td>
+            <td>58.34</td>
+            <td>46.17</td>
+            <td>57.14</td>
+            <td>61.21</td>
+            <td>61.13</td>
+            <td>45.85</td>
+            <td>64.20</td>
         </tr>
     </tbody>
 </table>
