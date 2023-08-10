@@ -1,7 +1,6 @@
 # Generating Pseudo-samples
 ## Usage
-First, we adopt the [VinVL](https://github.com/microsoft/scene_graph_benchmark) to get the object proposals and their attributes.
--You can download the detection results from [detection results](https://disk.pku.edu.cn:443/link/E714889E66D48F2D81820BCF76BD6EB0) and put them in the right place.
+First, we adopt the [VinVL](https://github.com/microsoft/scene_graph_benchmark) to get the object proposals and their attributes. You can download the detection results from [detection results](https://disk.pku.edu.cn:443/link/E714889E66D48F2D81820BCF76BD6EB0) and put them in the right place.
 ```
 mkdir pseudo_sample_generation/detction_result
 mv detection_result.zip ./pseudo_sample_generation/detction_result/
@@ -18,7 +17,7 @@ CUDA_VISIBLE_DEVICES=0 python pseudo_sample_generation/generate.py --image_root 
 After obtaining PseudoQuery-Region pairs, we utilize uni-modal similaity score to propagate the region to real query and form RealQuery-Region pairs.
 
 ```
-CUDA_VISIBLE_DEVICES=0 python pseudo_sample_generation/propagation.py --output_dir ./output/unc --dataset unc --data_root ./data --uni_modal ./output/unc/pseudo_template.pth --cross_modal ./output/unc/pseudo_object.pth
+python pseudo_sample_generation/propagation.py --output_dir ./output/unc --dataset unc --data_root ./data --uni_modal ./output/unc/pseudo_template.pth --cross_modal ./output/unc/pseudo_object.pth
 ```
 
 ## Verification of pseudo samples
