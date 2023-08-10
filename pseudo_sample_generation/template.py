@@ -218,7 +218,7 @@ def add_obj(data):
     
 
 
-def filt_obj(data, nn_dict, jj_dict, google_model, data_file, attribute=True, object_num=-1):
+def filt_obj(data, nn_dict, jj_dict, google_model, data_file, attribute=True, object_num=-1, threshold=0.5):
     unc = torch.load(data_file)
     images = {}
     for i in range(len(unc)):
@@ -233,7 +233,7 @@ def filt_obj(data, nn_dict, jj_dict, google_model, data_file, attribute=True, ob
                 vector = google_model[word_list[-1]]
                 norm = np.linalg.norm(vector) * np.linalg.norm(nn_dict[key], axis=1)
                 score = max(np.matmul(nn_dict[key], vector) / norm)
-                if score < 0.5:
+                if score < threshold:
                     continue
             else:
                 continue
@@ -247,7 +247,7 @@ def filt_obj(data, nn_dict, jj_dict, google_model, data_file, attribute=True, ob
                 if google_model.__contains__(word_list[j]) and jj_dict[key].shape[0]:
                     vector2 = google_model[word_list[j]]
                     norm2 = np.linalg.norm(vector2) * np.linalg.norm(jj_dict[key], axis=1)
-                    if max(np.matmul(jj_dict[key], vector2) / norm2) > 0.5:
+                    if max(np.matmul(jj_dict[key], vector2) / norm2) > threshold:
                         dict['attri'].append(word_list[j])
             if not attribute:
                 dict['attri'] = []
@@ -370,7 +370,7 @@ def template_pipeline(data_file, nlp, google_model, object_file, nn_vec, jj_vec,
 def object_centric_pipeline(data_file, nlp, google_model, object_file, nn_vec, jj_vec):
     print("generate prompt for object centric pipeline............")
     detects = torch.load(object_file)
-    data = filt_obj(detects, nn_vec, jj_vec, google_model, data_file, attribute=False, object_num=10)
+    data = filt_obj(detects, nn_vec, jj_vec, google_model, data_file, attribute=False, object_num=10, threshold=0.8)
     final_data = generate_text(data, pos_nes=False)
     return final_data
 
@@ -380,7 +380,7 @@ def object_centric_pipeline(data_file, nlp, google_model, object_file, nn_vec, j
 def relation_aware_pipeline(data_file, nlp, google_model, object_file, nn_vec, jj_vec):\
     print("generate prompt for relation aware pipeline............")
     detects = torch.load(object_file)
-    data = filt_obj(detects, nn_vec, jj_vec, google_model, data_file, attribute=False, object_num=10)
+    data = filt_obj(detects, nn_vec, jj_vec, google_model, data_file, attribute=False, object_num=10, threshold=0.8)
     data = add_horizontal(data)
     final_data = generate_text(data, pos_nes=True)
     return final_data
