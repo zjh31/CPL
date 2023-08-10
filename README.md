@@ -61,14 +61,14 @@ For generating pseudo-samples, we adopt the pretrained detector and attribute cl
 ```
 mkdir checkpoints
 mv detr_checkpoints.tar.gz ./checkpoints/
-tar -zxvf checkpoints.tar.gz
+tar -zxvf detr_checkpoints.tar.gz
 ```
 
 2.Checkpoints that trained on our pseudo-samples can be downloaded from [Google Drive](https://drive.google.com/file/d/19IhMNEgGIl4qGPq7v0SsD8VZSucfmlXj/view?usp=drive_link). You can evaluate the checkpoints following the instruction right below.
 
 ```
 mv cpl_checkpoints.tar.gz ./checkpoints/
-tar -zxvf pseudoq_checkpoints.tar.gz
+tar -zxvf cpl_checkpoints.tar.gz
 ```
 ### Training and Evaluation
 
