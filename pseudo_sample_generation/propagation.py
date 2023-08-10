@@ -1,14 +1,7 @@
-import json
 import os.path
-
-import cv2
 import torch
-import _pickle as cPickle
-from transformers import BertModel
 from sklearn.metrics.pairwise import cosine_similarity
-from transformers import BertTokenizer as Bert
 from tqdm import tqdm
-import gensim.downloader
 import numpy as np
 from gensim.models import KeyedVectors
 import argparse
@@ -29,17 +22,6 @@ args = parser.parse_args()
 
 
 
-def cal_iou(box1, box2):
-    in_h = min(box1[2], box2[2]) - max(box1[0], box2[0])
-    in_w = min(box1[3], box2[3]) - max(box1[1], box2[1])
-    inter = 0 if in_h < 0 or in_w < 0 else in_h * in_w
-    union = (box1[2] - box1[0]) * (box1[3] - box1[1]) + \
-            (box2[2] - box2[0]) * (box2[3] - box2[1]) - inter
-    IoU = inter / union
-    if IoU >= 0.5:
-        return 1
-    else:
-        return 0
 
 def merge_pseudo(args):
     images = torch.load(args.uni_modal)
@@ -113,12 +95,10 @@ def propagation(text_info, images, google_model):
                     tmp = pseudo
         if len(tmp) == 0:
             continue
-        recall += cal_iou(tmp[2], box) * len(text_list)
         for text in text_list:
             img_file = img_name + ".jpg"
             data_info.append([img_file, tmp[2], text])
         data_info.append([img_file, tmp[2], tmp[0]])
-    print(recall/(len(data_info)-len(text_info)))
     return data_info
 
 def generate_pseudo_pairs(args):

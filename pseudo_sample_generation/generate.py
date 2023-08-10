@@ -1,8 +1,6 @@
 import os
 import os.path as osp
 import numpy as np
-import cv2
-import json
 import argparse
 import torch
 from template import template_pipeline, object_centric_pipeline, relation_aware_pipeline, extra_nn_jj

@@ -196,7 +196,7 @@ class TransVGDataset(data.Dataset):
             # self.process_dataset()
             print('The dataset {} is not found!'.format(osp.join(self.split_root, self.dataset)))
             print('Please download index cache to data folder: \n \
-                https://drive.google.com/open?id=1cZI562MABLtAzM6YU4WmKPFFguuVr0lZ')
+                https://disk.pku.edu.cn:443/link/29582215396BA69326A34F6DD2B2956A')
             exit(0)
 
         dataset_path = osp.join(self.split_root, self.dataset)

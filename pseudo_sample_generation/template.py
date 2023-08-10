@@ -1,6 +1,4 @@
 import os
-import re
-import json
 from tqdm import tqdm
 import torch
 import numpy as np
@@ -10,7 +8,6 @@ order = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eig
          'twenty-first', 'twenty-second', 'twenty-third', 'twenty-fourth', 'twenty-fifth', 'twenty-sixth', 'twenty-seventh', 'twenty-eighth', 'twenty-ninth', 'thirtieth',
          'thirty-first', 'thirty-second', 'thirty-third', 'thirty-fourth', 'thirty-fifth', 'thirty-sixth', 'thirty-seventh', 'thirty-eighth', 'thirty-ninth', 'fortieth',]
 pos_dict = {}
-from gensim.models import KeyedVectors
 for i in range(40):
     pos_dict[i] = order[i]
 for i in range(40, 100):

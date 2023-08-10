@@ -101,7 +101,7 @@ def get_args_parser():
                         help='Number of encoders in the vision-language transformer')
 
     # Dataset parameters
-    parser.add_argument('--data_root', type=str, default='./data/image_data/',
+    parser.add_argument('--data_root', type=str, default='./image_data/',
                         help='path to ReferIt splits data folder')
     parser.add_argument('--split_root', type=str, default='./data/',
                         help='location of pre-parsed dataset info')
