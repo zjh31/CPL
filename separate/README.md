@@ -13,7 +13,7 @@ This repository is the official Pytorch implementation of fully supervised visua
 ### Data Preparation
 
 1. You should put your dataset annotations (XXX.pth file) in `./data/` folder. The format of data is:
-'''
+```
 [
     [
         'XXX.jpg', #image name
@@ -21,7 +21,7 @@ This repository is the official Pytorch implementation of fully supervised visua
         query, #natural language query
     ]
 ]
-'''
+```
 2. You should put your image data in `./image_data/` folder. 
 
 ### Pretrained Checkpoints
