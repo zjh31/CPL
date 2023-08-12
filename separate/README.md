@@ -38,7 +38,7 @@ mv detr-r50.pth ./checkpoints/
     ```
     CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python -m torch.distributed.launch --nproc_per_node=8 --master_port 28888 --use_env train.py --num_workers 8 --epochs 20 --batch_size 32 --lr 0.0001 --lr_bert 0.00001 --lr_visu_cnn 0.00001 --lr_visu_tra 0.00001 --lr_scheduler cosine --aug_crop --aug_scale --aug_translate --backbone resnet50 --detr_model checkpoints/detr-r50.pth --bert_enc_num 12 --detr_enc_num 6 --max_query_len 20 --data_root ./image_data/ --train_ann_file [training file (./data/XXX.pth)] --val_ann_file [validation file (./data/xxx.pth)] --output_dir ./outputs/
     ```
-    *Notably, if you use a smaller batch size, you should also use a smaller learning rate. Original learning rate is set for batch size 128(4GPU x 32).* 
+    *Notably, if you use a smaller batch size, you should also use a smaller learning rate. Original learning rate is set for batch size 256(8GPU x 32).* 
 
 2.  Evaluation.
     ```
