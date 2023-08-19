@@ -124,7 +124,7 @@ tar -zxvf cpl_checkpoints.tar.gz
             <td>60.21</td>
             <td>60.12</td>
             <td>45.23</td>
-            <td>64.20</td>
+            <td>63.87</td>
         </tr>
     </tbody>
 </table>
