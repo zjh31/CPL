@@ -174,7 +174,7 @@ class TransVGDataset(data.Dataset):
 
         assert self.transform is not None
 
-        if split in ['train', 'train_cross_modal', 'train_uni_modal']:
+        if split in ['train', 'train_pseudo', 'train_cross_modal']:
             self.augment = True
         else:
             self.augment = False
@@ -212,13 +212,12 @@ class TransVGDataset(data.Dataset):
                 'Dataset {0} does not have split {1}'.format(
                     self.dataset, split))
 
-        splits = [split]
-        if self.dataset != 'referit':
-            splits = ['uni_modal', 'cross_modal'] if split == 'cross_modal' else [split]
-        for split in splits:
-            imgset_file = '{0}_{1}.pth'.format(self.dataset, split)
+        #splits = [split]
+        splits = ['uni_modal', 'cross_modal'] if split == 'cross_modal' else [split]
+        for sp in splits:
+            imgset_file = '{0}_{1}.pth'.format(self.dataset, sp)
             imgset_path = osp.join(dataset_path, imgset_file)
-            if split == 'cross_modal':
+            if sp == 'cross_modal':
                 data = torch.load(imgset_path)
                 for i in range(len(data)):
                     if data[i][-1] > 0.6:
@@ -238,7 +237,11 @@ class TransVGDataset(data.Dataset):
             img_file, bbox, phrase, weight = self.images[idx]
         else:
             img_file, bbox, phrase = self.images[idx]
+        if self.split == 'uni-modal':
+            weight = 1
         bbox = np.array(bbox, dtype=int)
+        self.im_dir = '/network_space/storage43/ln_data/images/train2014'
+        #self.im_dir = '/network_space/storage43/ln_data/flickr/flickr'
         img_path = osp.join(self.im_dir, img_file)
         img = Image.open(img_path).convert("RGB")
 
@@ -260,11 +263,7 @@ class TransVGDataset(data.Dataset):
         new_sample_list = []
 
         for i in range(n):
-            if self.dataset == 'flickr':
-                tmp_sample = (sample_list[i][0], sample_list[i][1], self.prompt_template.replace('{pseudo_query}', sample_list[i][2]))
-            else:
-                tmp_sample = (sample_list[i][0], sample_list[i][1], sample_list[i][2],
-                              self.prompt_template.replace('{pseudo_query}', sample_list[i][3]), sample_list[i][4])
+            tmp_sample = (sample_list[i][0], sample_list[i][1], self.prompt_template.replace('{pseudo_query}', sample_list[i][2]))
             new_sample_list.append(tmp_sample)
         return new_sample_list
 
