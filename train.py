@@ -25,7 +25,7 @@ def get_args_parser():
     parser.add_argument('--lr_bert', default=1e-5, type=float)
     parser.add_argument('--lr_visu_cnn', default=1e-5, type=float)
     parser.add_argument('--lr_visu_tra', default=1e-5, type=float)
-    parser.add_argument('--batch_size', default=32, type=int)
+    parser.add_argument('--batch_size', default=28, type=int)
     parser.add_argument('--weight_decay', default=1e-4, type=float)
     parser.add_argument('--epochs', default=20, type=int)
     parser.add_argument('--lr_power', default=0.9, type=float, help='lr poly power')
