@@ -48,7 +48,7 @@ Finally, the `./data/` and `./image_data/` folder will have the following struct
 - ```./image_data/other/images/```: Image data for RefCOCO/RefCOCO+/RefCOCOg. 
 - ```./image_data/referit/images/```: Image data for ReferItGame.
 
-2. The generated pseudo region-query pairs can be download from [data](https://disk.pku.edu.cn:443/link/29582215396BA69326A34F6DD2B2956A) or you can generate pseudo samples follow [instructions](./pseudo_sample_generation/README.md).
+2. The generated pseudo region-query pairs can be download from [data](https://disk.pku.edu.cn/link/AAA0C1C7831CB54DA1840C1FFA2B1BA2A7) or you can generate pseudo samples follow [instructions](./pseudo_sample_generation/README.md).
 
 Note that to train the model with pseudo samples for different dataset you should put the uncompressed pseudo sample files under the right folder ```./data/xxx/```. For example, put the ```unc/train_cross_modal.pth``` under ```./data/unc/```.
 
