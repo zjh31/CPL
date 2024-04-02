@@ -43,7 +43,7 @@ Finally, the `./data/` and `./image_data/` folder will have the following struct
    |-- referit
       |-- images
 ```
-- ```./data/```: Take the Flickr30K dataset as an example, ./data/flickr/ shoud contain files about the dataset's train/validation/test annotations and our generated pseudo-samples for this dataset. You can download these file from [data](https://disk.pku.edu.cn:443/link/29582215396BA69326A34F6DD2B2956A) and put them on the corresponding folder.
+- ```./data/```: Take the Flickr30K dataset as an example, ./data/flickr/ shoud contain files about the dataset's train/validation/test annotations and our generated pseudo-samples for this dataset. You can download these file from [data](https://disk.pku.edu.cn/link/AAA0C1C7831CB54DA1840C1FFA2B1BA2A7) and put them on the corresponding folder.
 - ```./image_data/Flickr30k/flickr30k-images/```: Image data for the Flickr30K dataset, please download from this [link](http://shannon.cs.illinois.edu/DenotationGraph/#:~:text=make%20face-,Downloads,-Please%20fill%20in). Fill the form and download the images.
 - ```./image_data/other/images/```: Image data for RefCOCO/RefCOCO+/RefCOCOg. 
 - ```./image_data/referit/images/```: Image data for ReferItGame.
